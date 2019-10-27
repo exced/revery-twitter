@@ -23,6 +23,7 @@ let make = () =>
         <Tweet id="2" />
         <Tweet id="3" />
         <Tweet id="4" />
+        <Tweet id="5" />
       </View>,
     )
   );
