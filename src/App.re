@@ -6,25 +6,15 @@ module Main = {
   open Router;
 
   module Styles = {
-    let sidebarContainer =
+    let container =
       Style.[
-        position(`Absolute),
-        bottom(0),
-        top(0),
-        left(0),
-        right(0),
+        flexGrow(1),
+        justifyContent(`Center),
         flexDirection(`Row),
-        backgroundColor(Color.hex("#e3f2fd")),
-      ];
-    let mainContainer =
-      Style.[
-        position(`Absolute),
-        top(0),
-        left(175),
-        right(0),
-        bottom(0),
         backgroundColor(Colors.white),
       ];
+    let mainContainer =
+      Style.[height(500), minWidth(500), backgroundColor(Colors.white)];
   };
 
   type action =
@@ -55,7 +45,7 @@ module Main = {
 
       (
         hooks,
-        <View onMouseWheel={_ => ()} style=Styles.sidebarContainer>
+        <View style=Styles.container>
           <Sidebar setRoute currentRoute=route />
           <View style=Styles.mainContainer> mainPanel </View>
         </View>,

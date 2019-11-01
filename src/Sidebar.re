@@ -1,35 +1,79 @@
 open Revery;
-open Revery;
 open Revery.UI;
 open Revery.UI.Components;
 
 module Styles = {
-  let scrollContainer =
-    Style.[position(`Absolute), top(0), left(0), width(175), bottom(0)];
+  open Theme;
+  let container = Style.[minWidth(200), paddingTop(Spacing.xxl)];
 };
 
 let component = React.component("Sidebar");
 
 let make = (~setRoute, ~currentRoute, ()) =>
-  component(hooks =>
+  component(hooks => {
     (
       hooks,
       Router.(
-        <ScrollView style=Styles.scrollContainer>
-          <Link
+        <View style=Styles.container>
+          <ThemedButton
+            kind=Theme.Secondary
+            text="Home"
+            centered=false
             active={currentRoute == Routes.Home}
             onClick={() => setRoute(Routes.Home)}
-            text="Home"
           />
-          <Link
+          <ThemedButton
+            kind=Theme.Secondary
+            text="Explore"
+            centered=false
+            onClick={() => print_endline("TODO")}
+          />
+          <ThemedButton
+            kind=Theme.Secondary
+            text="Notifications"
+            centered=false
+            onClick={() => print_endline("TODO")}
+          />
+          <ThemedButton
+            kind=Theme.Secondary
+            text="Messages"
+            centered=false
+            onClick={() => print_endline("TODO")}
+          />
+          <ThemedButton
+            kind=Theme.Secondary
+            text="Bookmarks"
+            centered=false
+            onClick={() => print_endline("TODO")}
+          />
+          <ThemedButton
+            kind=Theme.Secondary
+            text="Lists"
+            centered=false
+            onClick={() => print_endline("TODO")}
+          />
+          <ThemedButton
+            kind=Theme.Secondary
+            text="Profile"
+            centered=false
             active={currentRoute == Routes.Profile}
             onClick={() => setRoute(Routes.Profile)}
-            text="New"
           />
-        </ScrollView>
+          <ThemedButton
+            kind=Theme.Secondary
+            text="More"
+            centered=false
+            onClick={() => print_endline("TODO")}
+          />
+          <ThemedButton
+            kind=Theme.Primary
+            text="Tweet"
+            onClick={() => print_endline("TODO")}
+          />
+        </View>
       ),
     )
-  );
+  });
 
 let createElement = (~children as _, ~setRoute, ~currentRoute, ()) =>
   make(~setRoute, ~currentRoute, ());

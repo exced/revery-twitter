@@ -5,13 +5,30 @@ open Revery.UI.Components;
 module Styles = {
   let container = Style.[padding(10), flexDirection(`Row)];
 
+  let h = 49;
+
   let ppContainer =
-    Style.[borderRight(~width=3, ~color=Colors.green), borderRadius(16.0)];
+    Style.[
+      width(h),
+      height(h),
+      backgroundColor(Theme.Colors.blue),
+      border(~color=Theme.Colors.blue, ~width=10),
+      borderRadius(25.0),
+    ];
 
   let contentContainer =
     Style.[
-      border(~width=4, ~color=Colors.black),
-      borderRadius(16.0),
+      backgroundColor(Colors.black),
+      border(~color=Colors.black, ~width=1),
+      borderRadius(5.0),
+      overflow(`Hidden),
+    ];
+
+  let subContentContainer =
+    Style.[
+      backgroundColor(Colors.white),
+      border(~color=Colors.white, ~width=1),
+      borderRadius(5.0),
       overflow(`Hidden),
     ];
 
@@ -30,12 +47,15 @@ let make = (~id, ()) =>
     (
       hooks,
       <View style=Styles.container>
-        <Text style=Styles.text text=id />
-        <View style=Styles.ppContainer>
-          <Text style=Styles.text text="PP" />
-        </View>
+        <View style=Styles.ppContainer />
+        <Text style=Styles.text text="Name" />
+        <Text style=Styles.text text="Tweet" />
         <View style=Styles.contentContainer>
-          <Text style=Styles.text text="Content" />
+          <View style=Styles.subContentContainer>
+            <View style=Style.[width(150), height(80)]>
+              <Text style=Styles.text text="Content" />
+            </View>
+          </View>
         </View>
       </View>,
     )
