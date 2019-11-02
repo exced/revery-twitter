@@ -11,9 +11,9 @@ module Styles = {
     ];
 };
 
-let component = React.component("Explore");
+let component = React.component(__MODULE__);
 
 let make = () =>
-  component(hooks => (hooks, <Text style=Styles.text text="Explore" />));
+  component(hooks => (hooks, <Text style=Styles.text text=__MODULE__ />));
 
 let createElement = (~children as _, ()) => make();

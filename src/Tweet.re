@@ -5,44 +5,31 @@ open Revery.UI.Components;
 module Styles = {
   let container =
     Style.[
-      padding(10),
+      padding(Theme.Spacing.m),
       flexDirection(`Row),
       borderBottom(~color=Theme.Colors.grey, ~width=Theme.Spacing.xxs),
     ];
 
-  let h = 49;
-
   let ppContainer =
     Style.[
-      width(h),
-      height(h),
+      width(Theme.Spacing.xxxl),
+      height(Theme.Spacing.xxxl),
       backgroundColor(Theme.Colors.blue),
       border(~color=Theme.Colors.blue, ~width=10),
       borderRadius(25.0),
+      marginRight(Theme.Spacing.l),
     ];
 
-  let contentContainer =
-    Style.[
-      backgroundColor(Colors.black),
-      border(~color=Colors.black, ~width=1),
-      borderRadius(5.0),
-      overflow(`Hidden),
-    ];
-
-  let subContentContainer =
-    Style.[
-      backgroundColor(Colors.white),
-      border(~color=Colors.white, ~width=1),
-      borderRadius(5.0),
-      overflow(`Hidden),
-    ];
+  let authorRowContainer = Style.[flexDirection(`Row)];
 
   let text =
     Style.[
       color(Colors.black),
       fontFamily("Roboto-Black.ttf"),
-      fontSize(18),
+      fontSize(15),
     ];
+
+  let refContainer = Style.[padding(20)];
 };
 
 let component = React.component("Tweet");
@@ -55,21 +42,25 @@ let make = (~id, ()) =>
         <View style=Styles.container>
           <View style=Styles.ppContainer />
           <View>
-            <Row>
+            <View style=Styles.authorRowContainer>
               <Text style=Styles.text text={tweet.author.username} />
               <Text style=Styles.text text={tweet.author.handle} />
-            </Row>
+            </View>
             <View style=Style.[width(150), height(80)]>
               <Text style=Styles.text text={tweet.text} />
             </View>
             {switch (tweet.ref) {
              | Some(tweetRef) =>
-               <View style=Styles.contentContainer>
-                 <View style=Styles.subContentContainer>
-                   <View style=Style.[width(150), height(80)]>
-                     <Text style=Styles.text text="TWEET REF" />
+               <View style=Styles.refContainer>
+                 <Bordered>
+                   <View style=Styles.authorRowContainer>
+                     <Text style=Styles.text text={tweetRef.author.username} />
+                     <Text style=Styles.text text={tweetRef.author.handle} />
                    </View>
-                 </View>
+                   <View style=Style.[width(150), height(80)]>
+                     <Text style=Styles.text text={tweetRef.text} />
+                   </View>
+                 </Bordered>
                </View>
              | None => <View />
              }}

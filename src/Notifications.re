@@ -11,11 +11,9 @@ module Styles = {
     ];
 };
 
-let component = React.component("Notifications");
+let component = React.component(__MODULE__);
 
 let make = () =>
-  component(hooks =>
-    (hooks, <Text style=Styles.text text="Notifications" />)
-  );
+  component(hooks => (hooks, <Text style=Styles.text text=__MODULE__ />));
 
 let createElement = (~children as _, ()) => make();
