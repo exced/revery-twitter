@@ -14,7 +14,11 @@ module Main = {
         backgroundColor(Colors.white),
       ];
     let mainContainer =
-      Style.[height(500), minWidth(500), backgroundColor(Colors.white)];
+      Style.[
+        backgroundColor(Theme.Colors.white),
+        borderLeft(~color=Theme.Colors.grey, ~width=Theme.Spacing.xxs),
+        borderRight(~color=Theme.Colors.grey, ~width=Theme.Spacing.xxs),
+      ];
   };
 
   type action =

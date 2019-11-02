@@ -3,8 +3,7 @@ open Revery.UI;
 open Revery.UI.Components;
 
 module Styles = {
-  open Theme;
-  let container = Style.[minWidth(200), paddingTop(Spacing.xxl)];
+  let container = Style.[minWidth(200), paddingTop(Theme.Spacing.xxl)];
 };
 
 let component = React.component("Sidebar");

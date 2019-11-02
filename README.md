@@ -19,6 +19,6 @@ yarn global add esy
 ## Development
 
 ```bash
-esy # Install + build
-esy x App # Run the app
+esy
+esy x App
 ```

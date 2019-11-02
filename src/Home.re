@@ -7,17 +7,11 @@ module Styles = {};
 let component = React.component("Home");
 
 let make = () =>
-  component(hooks =>
-    (
-      hooks,
-      <View>
-        <Tweet id="1" />
-        <Tweet id="2" />
-        <Tweet id="3" />
-        <Tweet id="4" />
-        <Tweet id="5" />
-      </View>,
-    )
-  );
+  component(hooks => {
+    let tweets =
+      List.map((t: Tweet.tweet) => <Tweet id={t.tweet_id} />, Tweet.tweets);
+
+    (hooks, <View> ...tweets </View>);
+  });
 
 let createElement = (~children as _, ()) => make();
