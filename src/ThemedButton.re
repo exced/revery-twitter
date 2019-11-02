@@ -4,7 +4,7 @@ open Revery.UI.Components;
 
 module Styles = {
   let viewContainer = (kind, ~hovered, ~centered) => {
-    let c =
+    let containerColor =
       switch (kind, hovered) {
       | (Theme.Primary, true) => Theme.Colors.blue
       | (Theme.Primary, false) => Theme.Colors.lightBlue
@@ -12,13 +12,12 @@ module Styles = {
       | (Theme.Secondary, false) => Theme.Colors.white
       };
 
-    let h = 49;
-
     Style.[
-      minHeight(h),
-      border(~color=c, ~width=Theme.Spacing.m),
-      borderRadius(float_of_int(h) /. 2.0),
-      backgroundColor(c),
+      padding(Theme.Spacing.m),
+      minHeight(Theme.Spacing.xxxl),
+      border(~color=containerColor, ~width=Theme.Spacing.m),
+      borderRadius(float_of_int(Theme.Spacing.xxxl) /. 2.0),
+      backgroundColor(containerColor),
       justifyContent(centered ? `Center : `FlexStart),
       alignItems(`Center),
       flexDirection(`Row),

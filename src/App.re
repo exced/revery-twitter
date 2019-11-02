@@ -15,6 +15,7 @@ module Main = {
       ];
     let mainContainer =
       Style.[
+        minWidth(500),
         backgroundColor(Theme.Colors.white),
         borderLeft(~color=Theme.Colors.grey, ~width=Theme.Spacing.xxs),
         borderRight(~color=Theme.Colors.grey, ~width=Theme.Spacing.xxs),
@@ -43,7 +44,13 @@ module Main = {
       let mainPanel =
         switch (route) {
         | Home => <Home />
+        | Explore => <Explore />
+        | Notifications => <Notifications />
+        | Messages => <Messages />
+        | Bookmarks => <Bookmarks />
+        | Lists => <Lists />
         | Profile => <Profile />
+        | More => <More />
         | Tweet(id) => <Tweet id />
         };
 

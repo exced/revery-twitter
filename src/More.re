@@ -11,9 +11,9 @@ module Styles = {
     ];
 };
 
-let component = React.component("Profile");
+let component = React.component("More");
 
 let make = () =>
-  component(hooks => (hooks, <Text style=Styles.text text="Profile" />));
+  component(hooks => (hooks, <Text style=Styles.text text="More" />));
 
 let createElement = (~children as _, ()) => make();

@@ -22,4 +22,5 @@ module Spacing = {
   let l = 16;
   let xl = 24;
   let xxl = 32;
+  let xxxl = 49;
 };

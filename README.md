@@ -1,6 +1,6 @@
 # Revery Twitter
 
-Simple Twitter clone to learn Revery, Reason and its ecosystem.
+Learning Reason and Revery by trying to reproduce a minimal Twitter clone
 
 ## Prerequisites
 

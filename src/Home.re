@@ -9,7 +9,7 @@ let component = React.component("Home");
 let make = () =>
   component(hooks => {
     let tweets =
-      List.map((t: Tweet.tweet) => <Tweet id={t.tweet_id} />, Tweet.tweets);
+      List.map((t: Data.tweet) => <Tweet id={t.tweet_id} />, Data.tweets);
 
     (hooks, <View> ...tweets </View>);
   });

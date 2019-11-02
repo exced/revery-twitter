@@ -25,31 +25,36 @@ let make = (~setRoute, ~currentRoute, ()) =>
             kind=Theme.Secondary
             text="Explore"
             centered=false
-            onClick={() => print_endline("TODO")}
+            active={currentRoute == Routes.Explore}
+            onClick={() => setRoute(Routes.Explore)}
           />
           <ThemedButton
             kind=Theme.Secondary
             text="Notifications"
             centered=false
-            onClick={() => print_endline("TODO")}
+            active={currentRoute == Routes.Notifications}
+            onClick={() => setRoute(Routes.Notifications)}
           />
           <ThemedButton
             kind=Theme.Secondary
             text="Messages"
             centered=false
-            onClick={() => print_endline("TODO")}
+            active={currentRoute == Routes.Messages}
+            onClick={() => setRoute(Routes.Messages)}
           />
           <ThemedButton
             kind=Theme.Secondary
             text="Bookmarks"
             centered=false
-            onClick={() => print_endline("TODO")}
+            active={currentRoute == Routes.Bookmarks}
+            onClick={() => setRoute(Routes.Bookmarks)}
           />
           <ThemedButton
             kind=Theme.Secondary
             text="Lists"
             centered=false
-            onClick={() => print_endline("TODO")}
+            active={currentRoute == Routes.Lists}
+            onClick={() => setRoute(Routes.Lists)}
           />
           <ThemedButton
             kind=Theme.Secondary
@@ -62,7 +67,8 @@ let make = (~setRoute, ~currentRoute, ()) =>
             kind=Theme.Secondary
             text="More"
             centered=false
-            onClick={() => print_endline("TODO")}
+            active={currentRoute == Routes.More}
+            onClick={() => setRoute(Routes.More)}
           />
           <ThemedButton
             kind=Theme.Primary
