@@ -11,6 +11,5 @@ module Routes = {
     | Bookmarks
     | Lists
     | Profile
-    | More
-    | Tweet(string);
+    | More;
 };

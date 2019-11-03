@@ -13,7 +13,7 @@ module Styles = {
 
 let component = React.component("Sidebar");
 
-let make = (~setRoute, ~currentRoute, ()) =>
+let make = (~setRoute, ~currentRoute, ~toggleTweetInput, ()) =>
   component(hooks => {
     (
       hooks,
@@ -78,12 +78,13 @@ let make = (~setRoute, ~currentRoute, ()) =>
           <ThemedButton
             kind=Theme.Primary
             text="Tweet"
-            onClick={() => print_endline("TODO")}
+            onClick=toggleTweetInput
           />
         </View>
       ),
     )
   });
 
-let createElement = (~children as _, ~setRoute, ~currentRoute, ()) =>
-  make(~setRoute, ~currentRoute, ());
+let createElement =
+    (~children as _, ~setRoute, ~currentRoute, ~toggleTweetInput, ()) =>
+  make(~setRoute, ~currentRoute, ~toggleTweetInput, ());

@@ -1,3 +1,5 @@
+let next_tweet_id = ref(5);
+
 type tweet = {
   tweet_id: string,
   ref: option(tweet),
@@ -35,9 +37,3 @@ and tweet3 = {
 and tweet4 = {tweet_id: "4", ref: None, text: "Tweet 4", author: user2};
 
 let tweets = [tweet1, tweet2, tweet3, tweet4];
-
-let getTweet = id =>
-  switch (List.find(t => t.tweet_id == id, tweets)) {
-  | tweet => Some(tweet)
-  | exception Not_found => None
-  };

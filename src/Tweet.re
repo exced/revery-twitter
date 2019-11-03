@@ -24,7 +24,7 @@ module Styles = {
 
   let text =
     Style.[
-      color(Colors.black),
+      color(Theme.Colors.black),
       fontFamily("Roboto-Black.ttf"),
       fontSize(15),
     ];
@@ -34,11 +34,11 @@ module Styles = {
 
 let component = React.component("Tweet");
 
-let make = (~id, ()) =>
+let make = (~tweet, ()) =>
   component(hooks => {
-    let content =
-      switch (Data.getTweet(id)) {
-      | Some(tweet) =>
+    (
+      hooks,
+      Data.(
         <View style=Styles.container>
           <View style=Styles.ppContainer />
           <View>
@@ -66,10 +66,8 @@ let make = (~id, ()) =>
              }}
           </View>
         </View>
-      | None => <Text style=Styles.text text="Tweet not found" />
-      };
-
-    (hooks, content);
+      ),
+    )
   });
 
-let createElement = (~children as _, ~id, ()) => make(~id, ());
+let createElement = (~children as _, ~tweet, ()) => make(~tweet, ());

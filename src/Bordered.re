@@ -5,16 +5,16 @@ open Revery.UI.Components;
 module Styles = {
   let container =
     Style.[
-      backgroundColor(Colors.black),
-      border(~color=Colors.black, ~width=1),
+      backgroundColor(Theme.Colors.black),
+      border(~color=Theme.Colors.black, ~width=1),
       borderRadius(5.0),
       overflow(`Hidden),
     ];
 
   let subContainer =
     Style.[
-      backgroundColor(Colors.white),
-      border(~color=Colors.white, ~width=1),
+      backgroundColor(Theme.Colors.white),
+      border(~color=Theme.Colors.white, ~width=1),
       borderRadius(5.0),
       overflow(`Hidden),
     ];

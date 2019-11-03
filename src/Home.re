@@ -2,16 +2,20 @@ open Revery;
 open Revery.UI;
 open Revery.UI.Components;
 
-module Styles = {};
+module Styles = {
+  let scrollContainer = Style.[flexGrow(1)];
+};
 
 let component = React.component("Home");
 
-let make = () =>
+let make = (~tweets, ()) =>
   component(hooks => {
-    let tweets =
-      List.map((t: Data.tweet) => <Tweet id={t.tweet_id} />, Data.tweets);
+    let tweets = List.map((tweet: Data.tweet) => <Tweet tweet />, tweets);
 
-    (hooks, <View> ...tweets </View>);
+    (
+      hooks,
+      <ScrollView style=Styles.scrollContainer> ...tweets </ScrollView>,
+    );
   });
 
-let createElement = (~children as _, ()) => make();
+let createElement = (~children as _, ~tweets, ()) => make(~tweets, ());
