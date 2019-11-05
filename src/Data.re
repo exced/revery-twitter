@@ -4,6 +4,7 @@ type tweet = {
   tweet_id: string,
   ref: option(tweet),
   text: string,
+  img: option(string),
   author,
 }
 and author = {
@@ -19,8 +20,20 @@ let rec user1 = {
   handle: "@user1",
   tweets: [tweet1, tweet2],
 }
-and tweet1 = {tweet_id: "1", ref: None, text: "Tweet 1", author: user1}
-and tweet2 = {tweet_id: "2", ref: None, text: "Tweet 2", author: user1};
+and tweet1 = {
+  tweet_id: "2",
+  ref: None,
+  text: "Built with Revery",
+  img: Some("revery-icon.png"),
+  author: user1,
+}
+and tweet2 = {
+  tweet_id: "1",
+  ref: None,
+  text: "Credits: Jon Tyson",
+  img: Some("jon-tyson-unsplash.jpg"),
+  author: user1,
+};
 
 let rec user2 = {
   user_id: "2",
@@ -32,8 +45,15 @@ and tweet3 = {
   tweet_id: "3",
   ref: Some(tweet1),
   text: "Tweet 3",
+  img: None,
   author: user2,
 }
-and tweet4 = {tweet_id: "4", ref: None, text: "Tweet 4", author: user2};
+and tweet4 = {
+  tweet_id: "4",
+  ref: None,
+  text: "Tweet 4",
+  img: None,
+  author: user2,
+};
 
 let tweets = [tweet1, tweet2, tweet3, tweet4];

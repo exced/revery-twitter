@@ -73,6 +73,7 @@ module Main = {
           tweet_id: string_of_int(Data.next_tweet_id^),
           ref: None,
           text,
+          img: None,
           author: Data.user1,
         };
         dispatch(AddTweet(tweet));

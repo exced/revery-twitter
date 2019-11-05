@@ -36,38 +36,37 @@ let component = React.component("Tweet");
 
 let make = (~tweet, ()) =>
   component(hooks => {
+    let render = (tweet: Data.tweet) =>
+      <View>
+        <View style=Styles.authorRowContainer>
+          <Text style=Styles.text text={tweet.author.username} />
+          <Text style=Styles.text text={tweet.author.handle} />
+        </View>
+        <View style=Style.[width(150), height(80)]>
+          <Text style=Styles.text text={tweet.text} />
+        </View>
+        {switch (tweet.img) {
+         | Some(src) => <Image src style=Style.[width(300), height(200)] />
+         | None => <View />
+         }}
+      </View>;
+
     (
       hooks,
       Data.(
         <View style=Styles.container>
           <View style=Styles.ppContainer />
-          <View>
-            <View style=Styles.authorRowContainer>
-              <Text style=Styles.text text={tweet.author.username} />
-              <Text style=Styles.text text={tweet.author.handle} />
-            </View>
-            <View style=Style.[width(150), height(80)]>
-              <Text style=Styles.text text={tweet.text} />
-            </View>
-            {switch (tweet.ref) {
-             | Some(tweetRef) =>
-               <View style=Styles.refContainer>
-                 <Bordered>
-                   <View style=Styles.authorRowContainer>
-                     <Text style=Styles.text text={tweetRef.author.username} />
-                     <Text style=Styles.text text={tweetRef.author.handle} />
-                   </View>
-                   <View style=Style.[width(150), height(80)]>
-                     <Text style=Styles.text text={tweetRef.text} />
-                   </View>
-                 </Bordered>
-               </View>
-             | None => <View />
-             }}
-          </View>
+          {render(tweet)}
+          {switch (tweet.ref) {
+           | Some(tweetRef) =>
+             <View style=Styles.refContainer>
+               <Bordered> {render(tweetRef)} </Bordered>
+             </View>
+           | None => <View />
+           }}
         </View>
       ),
-    )
+    );
   });
 
 let createElement = (~children as _, ~tweet, ()) => make(~tweet, ());

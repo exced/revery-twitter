@@ -2,4 +2,4 @@
 (install
     (section bin)
     (package App)
-    (files Roboto-Black.ttf Roboto-Regular.ttf Roboto-Medium.ttf))
+    (files Roboto-Black.ttf Roboto-Regular.ttf Roboto-Medium.ttf revery-icon.png jon-tyson-unsplash.jpg))
